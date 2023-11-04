@@ -45,10 +45,26 @@ gdrive_download $FILEID $FILENAME
 sudo cp -axr /tmp/install/backgrounds/. /usr/share/backgrounds
 xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image -s '/usr/share/backgrounds/mountains-wallpapers-1920x1080-00019.jpg'
 
+#**   ***   ***   ***   ***   ***   ***   ***   *** DT BLUETOOTH  ***   ***  ***   ***   ***   ***   ***   ***   ***   ***   ***
 wget https://s3.amazonaws.com/plugable/bin/fw-0a5c_21e8.hcd
 sudo mkdir /lib/firmware/brcm
 sudo mv fw-0a5c_21e8.hcd /lib/firmware/brcm/BCM-0b05-17cb.hcd
 #dmesg | grep firmware
+
+sudo apt-get install blueman
+#sudo apt-get install bluez
+#sudo apt-get install bluez-tools
+#sudo apt-get install libspa-0.2-bluetooth
+sudo apt-get install pulseaudio-module-bluetooth
+sudo apt-get reinstall -y  libavcodec-dev libpulse-dev libdbus-1-dev libsbc-dev libltdl-dev libbluetooth-dev 
+
+# del libreoffice
+
+sudo apt-get remove --purge "libreoffice*"
+sudo apt-get remove --purge libreoffice-core
+sudo apt-get clean
+sudo apt-get autoremove
+
 
 
 
