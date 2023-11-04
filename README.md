@@ -45,6 +45,13 @@ gdrive_download $FILEID $FILENAME
 sudo cp -axr /tmp/install/backgrounds/. /usr/share/backgrounds
 xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image -s '/usr/share/backgrounds/mountains-wallpapers-1920x1080-00019.jpg'
 
+wget https://s3.amazonaws.com/plugable/bin/fw-0a5c_21e8.hcd
+sudo mkdir /lib/firmware/brcm
+sudo mv fw-0a5c_21e8.hcd /lib/firmware/brcm/BCM-0b05-17cb.hcd
+#dmesg | grep firmware
+
+
+
 #rm -rf ~/.config/xfce4/panel
 #mkdir ~/.config/xfce4/panel
 #rm -f ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
@@ -154,12 +161,11 @@ sudo snap install snap-store
 #sudo systemctl status snapd
 sudo systemctl start snapd
 sudo ln -s /etc/profile.d/apps-bin-path.sh /etc/X11/Xsession.d/99snap
+sudo ln -s /var/lib/snapd/snap /snap
 
 #sudo nano /etc/login.defs
-
 #need to change line
 #NV_PATH PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
-
 
  }
 
